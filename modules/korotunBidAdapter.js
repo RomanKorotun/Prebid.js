@@ -1,7 +1,8 @@
 import { registerBidder } from "../src/adapters/bidderFactory.js";
 import { BANNER } from "../src/mediaTypes.js";
 
-const AUCTION_PATH = "https://korotun.prebid.ua/auction";
+export const AUCTION_PATH =
+  "https://adtelligent-backend-production.up.railway.app/korotunAuction";
 const BIDDER_CODE = "korotun";
 
 export const spec = {

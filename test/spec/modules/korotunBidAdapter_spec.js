@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { spec } from "modules/korotunBidAdapter.js";
+import { spec, AUCTION_PATH } from "modules/korotunBidAdapter.js";
 
 const validBidRequest = {
   bidId: "bid123",
@@ -69,7 +69,7 @@ describe("korotunBidAdapter", () => {
     it("формує правильний запит до сервера", () => {
       const request = spec.buildRequests([validBidRequest], bidderRequest);
       expect(request.method).to.equal("POST");
-      expect(request.url).to.equal("https://korotun.prebid.ua/auction");
+      expect(request.url).to.equal(AUCTION_PATH);
       const payload = JSON.parse(request.data);
       expect(payload.auctionId).to.equal("auction789");
       expect(payload.referer).to.equal("https://example.com");
