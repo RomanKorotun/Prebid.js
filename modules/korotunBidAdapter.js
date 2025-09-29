@@ -1,5 +1,6 @@
 import { registerBidder } from "../src/adapters/bidderFactory.js";
 import { BANNER } from "../src/mediaTypes.js";
+
 const AUCTION_PATH = "https://korotun.prebid.ua/auction";
 const BIDDER_CODE = "korotun";
 
@@ -15,6 +16,8 @@ export const spec = {
       korotunId: bid.params.korotunId,
       adUnitCode: bid.adUnitCode,
       sizes: bid.sizes,
+      cpm: bid.params.cpm,
+      currency: bid.params.currency,
     }));
 
     const payload = {

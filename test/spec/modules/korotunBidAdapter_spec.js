@@ -80,17 +80,19 @@ describe("korotunBidAdapter", () => {
   describe("interpretResponse", () => {
     it("повертає масив ставок з відповіді сервера", () => {
       const result = spec.interpretResponse(serverResponseWithDeal);
-      expect(result).to.be.an("array").with.lengthOf(1);
-      expect(result[0].requestId).to.equal("bid123");
-      expect(result[0].cpm).to.equal(1.5);
-      expect(result[0].width).to.equal(300);
-      expect(result[0].height).to.equal(250);
-      expect(result[0].creativeId).to.equal("creative456");
-      expect(result[0].dealId).to.equal("deal789");
-      expect(result[0].currency).to.equal("USD");
-      expect(result[0].ttl).to.equal(300);
-      expect(result[0].ad).to.equal("<div>Ad content</div>");
-      expect(result[0].netRevenue).to.equal(true);
+      const expectedBid = {
+        requestId: "bid123",
+        cpm: 1.5,
+        width: 300,
+        height: 250,
+        creativeId: "creative456",
+        dealId: "deal789",
+        currency: "USD",
+        netRevenue: true,
+        ttl: 300,
+        ad: "<div>Ad content</div>",
+      };
+      expect(result).to.deep.equal([expectedBid]);
     });
 
     it("повертає [] якщо body === []", () => {
