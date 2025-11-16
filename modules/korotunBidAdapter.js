@@ -19,6 +19,7 @@ export const spec = {
       sizes: bid.sizes,
       cpm: bid.params.cpm,
       currency: bid.params.currency,
+      adType: "banner",
     }));
 
     const payload = {
@@ -30,7 +31,10 @@ export const spec = {
     return {
       method: "POST",
       url: AUCTION_PATH,
-      data: JSON.stringify(payload),
+      data: payload,
+      options: {
+        contentType: "application/json",
+      },
     };
   },
   interpretResponse: (serverResponse) => {
