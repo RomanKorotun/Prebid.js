@@ -43,7 +43,7 @@ export const spec = {
       return [];
     }
     return responseBody.map((bid) => ({
-      requestId: bid.bidId,
+      requestId: bid.requestId,
       cpm: bid.cpm,
       width: bid.width,
       height: bid.height,
